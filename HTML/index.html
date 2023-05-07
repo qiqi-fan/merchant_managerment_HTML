@@ -1,0 +1,2329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/main.css">
+    
+    <link rel="stylesheet" href="../CSS/01订单管理.css">
+    <link rel="stylesheet" href="../CSS/02维权订单.css">
+    <link rel="stylesheet" href="../CSS/03商品列表.css">
+    <link rel="stylesheet" href="../CSS/04商品分类.css">
+    <link rel="stylesheet" href="../CSS/onclick-btn.css">
+    <link rel="stylesheet" href="../CSS/05商品详情.css">
+    <link rel="stylesheet" href="../CSS/06新增商品.css">
+    <link rel="stylesheet" href="../CSS/07客户详情.css">
+    <link rel="stylesheet" href="../CSS/08基本信息.css">
+    <link rel="stylesheet" href="../CSS/09发票管理.css">
+    <link rel="stylesheet" href="../CSS/10店铺公告.css">
+    <link rel="stylesheet" href="../CSS/11店铺活动.css">
+    <link rel="stylesheet" href="../CSS/12销售统计.css">
+    <link rel="stylesheet" href="../CSS/13资金统计.css">
+    <link rel="stylesheet" href="../font/css/all.css">
+    <script src="../JS/jquery-3.6.0.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/订单管理.js"></script>
+    <script src="../JS/商品列表.js"></script>
+    <!-- <script src="../JS/商品列表.js"></script> -->
+
+</head>
+<body>
+    <div class="shop">
+
+        <!-- 顶部菜单栏 -->
+        <div class="topper">
+            <ul class="topper-right">
+                <li class="topper-li">
+                    <img src="../IMG/qq.png" alt="" class="head" id="headimg">
+                    <div id="contentqqq">
+                        <ul class="nav">
+                            <li class="nav-li1">我的信息</li>
+                            <li class="nav-li1">退出登录</li>
+                            <li class="nav-li1">平台通知</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="topper-li"><i class="fas fa-bell"></i></li>
+                <li class="topper-li"><i class="fas fa-cog"></i></li>
+                <li class="topper-li" > 
+                    <i class="fas fa-search"></i>
+                </li >
+            </ul>
+        </div>
+
+        <!-- 左侧导航栏 -->
+        <div class="left">
+            <ul class="left-ul">
+                <li class="left-title" style=" padding-left:20px ;">商家管理端</li>
+                
+            </ul>
+            <ul class="left-ul">
+                <li class="left-title" >
+                    <i class="fas fa-book"></i>
+                    订单管理</li>
+                <li class="left-li" id="list-manager">订单管理</li>
+                <li class="left-li" id="protect-list">维权订单</li>
+            </ul>
+            <ul class="left-ul">
+                <li class="left-title">
+                    <i class="fas fa-shopping-cart"></i>
+                    商品管理</li>
+                <li class="left-li" id="shop-table">商品列表</li>
+                <li class="left-li" id="shop-class">商品分类</li>
+                <li class="left-li" id="shop-info">商品详情</li>
+                <li class="left-li" id="plus-shop">新增商品</li>
+            </ul>
+
+            <ul class="left-ul">
+                <li class="left-title">
+                    <i class="fas fa-user-friends"></i>
+                    客户管理</li>
+                <li class="left-li" id="customer-info">客户详情</li>
+            </ul>
+            <ul class="left-ul">
+                <li class="left-title">
+                    <i class="fas fa-store"></i>
+                    我的店铺</li>
+                <li class="left-li" id="basic-info">基本信息</li>
+                <li class="left-li" id="power-manager">发票管理</li>
+            </ul>
+            <ul class="left-ul">
+                <li class="left-title">
+                    <i class="fas fa-calculator"></i>
+                    运营管理</li>
+                <li class="left-li" id="shop-notice">店铺公告</li>
+                <li class="left-li" id="shop-activity">店铺活动</li>
+            </ul>
+            <ul class="left-ul">
+                <li class="left-title">
+                    <i class="fas fa-file-alt"></i>
+                    数据统计</li>
+                <li class="left-li" id="sale-all">销售统计</li>
+                <li class="left-li" id="money-all">资金统计</li>
+            </ul>
+        </div>
+        
+        <!-- 内容区1 全部订单-->
+        <div class="all-order">
+            <h2>全部订单</h2>
+            <ul class="ul-number">
+    
+                <li class="li-number">
+                    <select name="" id="list-state" class="number">
+                        <option value="">全部订单</option>
+                        <option value="">待付款</option>
+                        <option value="">待发货</option>
+                        <option value="">已发货</option>
+                        <option value="">交易完成</option>
+                    </select>
+                    <input id="put1" type="submit" value="筛选">
+                </li>
+                <li class="li-number">
+                    <input type="number" id="list-num" class="number" placeholder="请输入订单号">
+    
+                    <input id="put2" type="submit" value="搜索" >
+                </li>
+    
+            </ul>
+    
+            <table border="1px solid " style="border-collapse: separate; border-left-spacing: 10px;" class="list-table" id="list-table">
+                <tr class="row" id="first-row">
+                    <th>订单单号</th>
+                    <th>收货地址</th>
+                    <th>订单状态</th>
+                    <th>配送员</th>
+                    <th>订单日期</th>
+                    <th>订单金额/￥</th>
+                    <th>发货地</th>
+                    <th>收货人</th>
+                    <th>签收日期</th>
+                    <th>操作</th>
+                </tr>
+                <tr class="row">
+                    <td>98676751</td>
+                    <td>浙江省杭州市钱塘区</td>
+                    <td>待发货</td>
+                    <td>张三</td>
+                    <td>2022-10-01</td>
+                    <td>120</td>
+                    <td>浙江温州</td>
+                    <td>刘二</td>
+                    <td></td>
+                    <td>
+                        <a id="btn101" href="javascript:;">查看详情</a>
+                        <a class="list-operate" href="javascript:;">删除订单</a>
+                    </td>
+                </tr>
+                <tr class="row">
+                    <td>98212132</td>
+                    <td>浙江省杭州市西湖区</td>
+                    <td>待收货</td>
+                    <td>王五</td>
+                    <td>2022-09-25</td>
+                    <td>34</td>
+                    <td>广东广州</td>
+                    <td>大强</td>
+                    <td></td>
+                    <td>
+                        <a href="javascript:;">查看详情</a>
+                        <a class="list-operate" href="javascript:;">删除订单</a>
+                    </td>
+                </tr>
+                <tr class="row">
+                    <td>98454571</td>
+                    <td>浙江省杭州市江干区</td>
+                    <td>已完成</td>
+                    <td>张三</td>
+                    <td>2022-08-07</td>
+                    <td>78</td>
+                    <td>浙江杭州</td>
+                    <td>小杨</td>
+                    <td>2022-08-11</td>
+                    <td>
+                        <a id="btn12" href="javascript:;">查看详情</a>
+                        <a class="list-operate" href="javascript:;">删除订单</a>
+    
+    
+                    </td>
+                </tr>
+                <tr class="row">
+                    <td>29094399</td>
+                    <td>浙江省杭州市钱塘区</td>
+                    <td>待发货</td>
+                    <td>宋绒绒</td>
+                    <td>2022-9-20</td>
+                    <td>36.8</td>
+                    <td>浙江金华</td>
+                    <td>傅其乐</td>
+                    <td></td>
+                    <td>
+                        <a href="javascript:;">查看详情</a>
+                        <a class="list-operate" href="javascript:;">删除订单</a>
+    
+    
+                    </td>
+                </tr>
+                <tr class="row">
+                    <td>29092889</td>
+                    <td>浙江省宁波市</td>
+                    <td>待收货</td>
+                    <td>高远</td>
+                    <td>2022-8-25</td>
+                    <td>100</td>
+                    <td>湖北武汉</td>
+                    <td>许望</td>
+                    <td></td>
+                    <td>
+                        <a href="javascript:;">查看详情</a>
+                        <a class="list-operate" href="javascript:;">删除订单</a>
+    
+    
+                    </td>
+                </tr>
+                <tr class="row">
+                    <td>29004920</td>
+                    <td>陕西省西安市碑林区</td>
+                    <td>已完成</td>
+                    <td>周子谦</td>
+                    <td>2022-07-12</td>
+                    <td>80</td>
+                    <td>浙江嘉兴</td>
+                    <td>季秋</td>
+                    <td>2022-09-28</td>
+                    <td>
+                        <a href="javascript:;">查看详情</a>
+                        <a class="list-operate" href="javascript:;">删除订单</a>
+    
+    
+                    </td>
+                </tr>
+                <tr class="row">
+                    <td>34552411</td>
+                    <td>浙江省杭州市钱塘区</td>
+                    <td>待发货</td>
+                    <td>小张</td>
+                    <td>2022-08-29</td>
+                    <td>648.00</td>
+                    <td>江苏南京</td>
+                    <td>王五</td>
+                    <td></td>
+                    <td>
+                        <a href="javascript:;">查看详情</a>
+                        <a class="list-operate" href="javascript:;">删除订单</a>
+    
+    
+                    </td>
+                </tr>
+                <tr class="row">
+                    <td>26478891</td>
+                    <td>浙江省杭州市上城区</td>
+                    <td>待发货</td>
+                    <td>小李</td>
+                    <td>2022-09-18</td>
+                    <td>399.00</td>
+                    <td>广东深圳</td>
+                    <td>王五</td>
+                    <td></td>
+                    <td>
+                        <a href="javascript:;">查看详情</a>
+                        <a class="list-operate" href="javascript:;">删除订单</a>
+    
+                    </td>
+                </tr>
+                <tr class="row">
+                    <td>26478891</td>
+                    <td>浙江省杭州市钱塘区</td>
+                    <td>待付款</td>
+                    <td>小李</td>
+                    <td>2022-09-18</td>
+                    <td>399.00</td>
+                    <td>广东深圳</td>
+                    <td>王五</td>
+                    <td></td>
+                    <td>
+                        <a href="javascript:;">查看详情</a>
+                        <a class="list-operate" href="javascript:;">删除订单</a>
+    
+                    </td>
+                </tr>
+            </table>
+    
+            <!-- 遮罩层 -->
+            <div id="cover" style="background-color: black;"></div>
+            <!-- 弹出层1 -->
+            <div class="order-list-div1">
+                <div class="title">
+                    订单详情
+                    <i id="times1" class="fas fa-times"></i>
+    
+                </div>
+                <div class="tanchu-goods">
+                    <p>商品详情</p>
+                    <br>
+                    <img src="../IMG/4.png" alt="" height="100px" width="140px" style="margin-left: 50px;">
+                    <ul>
+                        <li>商品ID:0014</li>
+                        <li>商品购买数量:1件</li>
+                        <li>商品规格：家用型号</li>
+                    </ul>
+                </div>
+                <div class="list-content">
+                    <p>客户详情</p>
+                    <ul>
+                        <li>客户ID：0006</li>
+                        <li>客户在本店铺消费次数：1</li>
+                        <li>身份：VIP客户</li>
+                        <li>联系方式：19817656512</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="order-list-div2">
+                <div class="title">
+                    订单详情
+                    <i id="times2" class="fas fa-times"></i>
+    
+                </div>
+    
+    
+                <div class="tanchu-goods">
+                    <p>商品详情</p>
+                    <br>
+                    <img src="../IMG/21.png" alt="" height="100px" width="140px" style="margin-left: 50px;">
+                    <ul>
+                        <li>商品ID:0021</li>
+                        <li>商品购买数量:1件</li>
+                        <li>商品规格：粉色 L</li>
+                    </ul>
+                </div>
+                <div class="list-content">
+                    <p>客户详情</p>
+                    <ul>
+                        <li>客户ID：0011</li>
+                        <li>客户在本店铺消费次数：3</li>
+                        <li>身份：VIP客户</li>
+                        <li>联系方式：19181121232</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- 内容区2 维权订单-->
+        <div class="pro-list">
+            <h2>维权订单</h2>
+            <ul class="ul-btn">
+                <li class="li-btn"><button class="btn01">通过申请</button></li>
+                <li class="li-btn"><button>拒绝申请</button></li>
+            </ul>
+            <h2>基本信息</h2>
+            <ul class="list-ul">
+                <li>订单单号：12345678</li>
+                <li>配送员：张三</li>
+                <li>买家：wanger</li>
+                <li>订单日期：2020-01-01</li>
+                <li>购买数量：1件</li>
+                <li>购买总金额：100元</li>
+                <li>实收总金额：100元</li>
+                <li>收货人：李四</li>
+                <li>收货日期：2020-02-02</li>
+            </ul>
+    
+            <h2>全部维权申请</h2>
+            <table border="1px solid " style="border-collapse: separate; border-left-spacing: 10px;" class="list-table">
+                <tr class="row" id="first-row">
+                    <td>订单单号</td>
+                    <td>收货地址</td>
+                    <td>订单状态</td>
+                    <td>配送员</td>
+                    <td>订单日期</td>
+                    <td>订单金额/元</td>
+                    <td>发货地</td>
+                    <td>收货人</td>
+                    <td>申请日期</td>
+                    <td>申请原因</td>
+                </tr>
+                <tr class="row">
+                    <td>xxxxxxxxx</td>
+                    <td>x省x市x区</td>
+                    <td>待发货</td>
+                    <td>张三</td>
+                    <td>2020-8-20</td>
+                    <td>100</td>
+                    <td>浙江杭州</td>
+                    <td>李某</td>
+                    <td>2022-8-25</td>
+                    <td>
+                        <a href="#">查看详情</a>
+                    </td>
+                </tr>
+                <tr class="row">
+                    <td>xxxxxxxxx</td>
+                    <td>x省x市x区</td>
+                    <td>待发货</td>
+                    <td>张三</td>
+                    <td>2020-8-20</td>
+                    <td>100</td>
+                    <td>浙江杭州</td>
+                    <td>李某</td>
+                    <td>2022-8-25</td>
+                    <td>
+                        <a href="">查看详情</a>
+                    </td>
+                </tr>
+                <tr class="row">
+                    <td>xxxxxxxxx</td>
+                    <td>x省x市x区</td>
+                    <td>待发货</td>
+                    <td>张三</td>
+                    <td>2020-8-20</td>
+                    <td>100</td>
+                    <td>浙江杭州</td>
+                    <td>李某</td>
+                    <td>2022-8-25</td>
+                    <td>
+                        <a href="">查看详情</a>
+                    </td>
+                </tr>
+                <tr class="row">
+                    <td>xxxxxxxxx</td>
+                    <td>x省x市x区</td>
+                    <td>待发货</td>
+                    <td>张三</td>
+                    <td>2020-8-20</td>
+                    <td>100</td>
+                    <td>浙江杭州</td>
+                    <td>李某</td>
+                    <td>2022-8-25</td>
+                    <td>
+                        <a href="">查看详情</a>
+                    </td>
+                </tr>
+                <tr class="row">
+                    <td>xxxxxxxxx</td>
+                    <td>x省x市x区</td>
+                    <td>待发货</td>
+                    <td>张三</td>
+                    <td>2020-8-20</td>
+                    <td>100</td>
+                    <td>浙江杭州</td>
+                    <td>李某</td>
+                    <td>2022-8-25</td>
+                    <td>
+                        <a href="">查看详情</a>
+                    </td>
+                </tr>
+                <tr class="row">
+                    <td>xxxxxxxxx</td>
+                    <td>x省x市x区</td>
+                    <td>待发货</td>
+                    <td>张三</td>
+                    <td>2020-8-20</td>
+                    <td>100</td>
+                    <td>浙江杭州</td>
+                    <td>李某</td>
+                    <td>2022-8-25</td>
+                    <td>
+                        <a href="">查看详情</a>
+                    </td>
+                </tr>
+                <tr class="row">
+                    <td>xxxxxxxxx</td>
+                    <td>x省x市x区</td>
+                    <td>待发货</td>
+                    <td>张三</td>
+                    <td>2020-8-20</td>
+                    <td>100</td>
+                    <td>浙江杭州</td>
+                    <td>李某</td>
+                    <td>2022-8-25</td>
+                    <td>
+                        <a href="">查看详情</a>
+                    </td>
+                </tr>
+                <tr class="row">
+                    <td>xxxxxxxxx</td>
+                    <td>x省x市x区</td>
+                    <td>待发货</td>
+                    <td>张三</td>
+                    <td>2020-8-20</td>
+                    <td>100</td>
+                    <td>浙江杭州</td>
+                    <td>李某</td>
+                    <td>2022-8-25</td>
+                    <td>
+                        <a href="">查看详情</a>
+                    </td>
+                </tr>
+                <tr class="row">
+                    <td>xxxxxxxxx</td>
+                    <td>x省x市x区</td>
+                    <td>待发货</td>
+                    <td>张三</td>
+                    <td>2020-8-20</td>
+                    <td>100</td>
+                    <td>浙江杭州</td>
+                    <td>李某</td>
+                    <td>2022-8-25</td>
+                    <td>
+                        <a href="">查看详情</a>
+                    </td>
+                </tr>
+                
+                <tr class="row">
+                    <td>xxxxxxxxx</td>
+                    <td>x省x市x区</td>
+                    <td>待发货</td>
+                    <td>张三</td>
+                    <td>2020-8-20</td>
+                    <td>100</td>
+                    <td>浙江杭州</td>
+                    <td>李某</td>
+                    <td>2022-8-25</td>
+                    <td>
+                        <a href="">查看详情</a>
+                        <!-- <a href="">订单操作</a> -->
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!-- 内容区3 商品列表 -->
+        <div class="goods-list">
+            <h2>商品列表</h2>
+            <ul class="sell-state">
+                <li>待上架</li>
+                <li>已发布</li>
+                <li>已下架</li>
+                <li>已售空</li>
+            </ul>
+            <div class="allimg">
+                <div class="wait-sell">
+                    <img src="../IMG/1.png" alt="">
+                    <img src="../IMG/3.png" alt="">
+                    <img src="../IMG/4.png" alt="">
+                    <img src="../IMG/2.png" alt="">
+                    <img src="../IMG/5.png" alt="">
+                    <img src="../IMG/6.png" alt="">
+                    <img src="../IMG/7.png" alt="">
+                    <img src="../IMG/8.png" alt="">
+                    <img src="../IMG/9.png" alt="">
+                    <img src="../IMG/10.png" alt="">
+                    <img src="../IMG/1.png" alt="">
+                    <img src="../IMG/2.png" alt="">
+                </div>
+                <div class="released">
+                    <!-- <img src="../IMG/1.png" alt="">
+                    <img src="../IMG/2.png" alt=""> -->
+                    <img src="../IMG/9.png" alt="">
+                    <img src="../IMG/10.png" alt="">
+                    <img src="../IMG/6.png" alt="">
+                    <img src="../IMG/5.png" alt="">
+                    <img src="../IMG/8.png" alt="">
+                    <img src="../IMG/7.png" alt="">
+                    <img src="../IMG/1.png" alt="">
+                    <img src="../IMG/2.png" alt="">
+                    <img src="../IMG/3.png" alt="">
+                    <img src="../IMG/4.png" alt="">
+                </div>
+                <div class="off-the-shelf">
+                    <img src="../IMG/10.png" alt="">
+                    <img src="../IMG/9.png" alt="">
+                    <img src="../IMG/8.png" alt="">
+                    <img src="../IMG/7.png" alt="">
+                    <img src="../IMG/6.png" alt="">
+                    <img src="../IMG/5.png" alt="">
+                    <!-- <img src="../IMG/4.png" alt="">
+                    <img src="../IMG/4.png" alt="">
+                    <img src="../IMG/4.png" alt="">
+                    <img src="../IMG/4.png" alt="">
+                    <img src="../IMG/4.png" alt="">
+                    <img src="../IMG/4.png" alt=""> -->
+                </div>
+                <div class="sell-short">
+                    <img src="../IMG/1.png" alt="">
+                    <img src="../IMG/3.png" alt="">
+                    <img src="../IMG/4.png" alt="">
+                    <img src="../IMG/2.png" alt="">
+                    <img src="../IMG/7.png" alt="">
+                    <!-- <img src="../IMG/4.png" alt="">
+                    <img src="../IMG/4.png" alt="">
+                    <img src="../IMG/4.png" alt="">
+                    <img src="../IMG/4.png" alt="">
+                    <img src="../IMG/4.png" alt="">
+                    <img src="../IMG/4.png" alt="">
+                    <img src="../IMG/4.png" alt=""> -->
+                </div>
+            </div>
+           
+        </div>
+        <!-- 内容区4 商品分类-->
+        <div class="goods-class">
+            <h2>商品分类</h2>
+            <ul class="goods-screen">
+                <li>
+                    <select name="" id="type">
+                        <option value="">食品</option>
+                        <option value="">服装</option>
+                        <option value="">家用电器</option>
+                        <option value="">生活用品</option>
+                    </select>
+                </li>
+                <!-- <li>
+                    <select name="" id="">
+                        <option value="">待上架</option>
+                        <option value="">已发布</option>
+                        <option value="">已下架</option>
+                        <option value="">已售空</option>      
+                    </select>
+                </li> -->
+                <li>
+                    <button id="btn01">筛选</button>
+                </li>
+                <li>
+                    <input type="text" name="" id="" placeholder="请输入商品名称">
+                </li>
+                <li>
+                    <button id="btn02">搜索</button>
+                </li>
+                <li>
+                    <button id="btn03">新增商品</button>
+                </li>
+                
+            </ul>
+
+            <div class="table-div">
+                <table class="goods-table" >
+                    <tr>
+                        <td>商品名称</td>
+                        <td>图片</td>
+                        <td>商品类别</td>
+                        <td>单价</td>
+                        <td>库存（SKU）</td>
+                        <td>评分</td>
+                        <td>是否上架</td>
+                        <td>上架时间</td>
+                        <td>商品详情</td>
+                    </tr>
+                    <tr>
+                        <td>三只松鼠坚果</td>
+                        <td><img src="../IMG/11.png" alt=""></td>
+                        <td>食品</td>
+                        <td>￥100.00</td>
+                        <td>100</td>
+                        <td>
+                            <i id="y-star" class="fas fa-star"></i>
+                            <i id="y-star" class="fas fa-star"></i>
+                            <i id="star" class="fas fa-star"></i>
+                        </td>
+                        <td>
+                            <div class="click-btn">
+                                <div class="switch">
+                                    <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                                    <label for="cmn-toggle-1"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+                                    <label for="cmn-toggle-4"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-7" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+                                    <label for="cmn-toggle-7" data-on="Yes" data-off="No"></label>
+                                  </div>
+                            </div>
+                        </td>
+                        <td>2022-02-02</td>
+                        <td><a href="javascript:;">查看详情</a></td>
+                    </tr>
+                    <tr>
+                        <td>面包</td>
+                        <td><img src="../IMG/12.png" alt=""></td>
+                        <td>食品</td>
+                        <td>￥100.00</td>
+                        <td>100</td>
+                        <td>
+                            <i id="y-star" class="fas fa-star"></i>
+                            <i id="y-star" class="fas fa-star"></i>
+                            <i id="y-star" class="fas fa-star"></i>
+                        </td>
+                        <td>
+                            <div class="click-btn">
+                                <div class="switch">
+                                    <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                                    <label for="cmn-toggle-1"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+                                    <label for="cmn-toggle-4"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-7" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+                                    <label for="cmn-toggle-7" data-on="Yes" data-off="No"></label>
+                                  </div>
+                            </div>
+                        </td>
+                        <td>2022-02-02</td>
+                        <td><a href="javascript:;">查看详情</a></td>
+                    </tr>
+                    <tr>
+                        <td>女卫衣</td>
+                        <td><img src="../IMG/16.png" alt=""></td>
+                        <td>服装</td>
+                        <td>￥100.00</td>
+                        <td>100</td>
+                        <td>
+                            <i id="y-star" class="fas fa-star"></i>
+                            <i id="y-star" class="fas fa-star"></i>
+                            <i id="star" class="fas fa-star"></i>
+                        </td>
+                        <td>
+                            <div class="click-btn">
+                                <div class="switch">
+                                    <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                                    <label for="cmn-toggle-1"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+                                    <label for="cmn-toggle-4"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-7" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+                                    <label for="cmn-toggle-7" data-on="Yes" data-off="No"></label>
+                                  </div>
+                            </div>
+                        </td>
+                        <td>2022-02-02</td>
+                        <td id="check-info"><a href="javascript:;">查看详情</a></td>
+                    </tr>
+                    <tr>
+                        <td>眼镜</td>
+                        <td><img src="../IMG/17.png" alt=""></td>
+                        <td>生活用品</td>
+                        <td>￥100.00</td>
+                        <td>100</td>
+                        <td>
+                            <i id="y-star" class="fas fa-star"></i>
+                            <i id="y-star" class="fas fa-star"></i>
+                            <i id="star" class="fas fa-star"></i>
+                        </td>
+                        <td>
+                            <div class="click-btn">
+                                <div class="switch">
+                                    <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                                    <label for="cmn-toggle-1"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+                                    <label for="cmn-toggle-4"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-7" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+                                    <label for="cmn-toggle-7" data-on="Yes" data-off="No"></label>
+                                  </div>
+                            </div>
+                        </td>
+                        <td>2022-02-02</td>
+                        <td><a href="">查看详情</a></td>
+                    </tr>
+                    <tr>
+                        <td>XXX</td>
+                        <td><img src="" alt=""></td>
+                        <td>服装</td>
+                        <td>￥100.00</td>
+                        <td>100</td>
+                        <td>
+                            <i id="y-star" class="fas fa-star"></i>
+                            <i id="y-star" class="fas fa-star"></i>
+                            <i id="star" class="fas fa-star"></i>
+                        </td>
+                        <td>
+                            <div class="click-btn">
+                                <div class="switch">
+                                    <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                                    <label for="cmn-toggle-1"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+                                    <label for="cmn-toggle-4"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-7" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+                                    <label for="cmn-toggle-7" data-on="Yes" data-off="No"></label>
+                                  </div>
+                            </div>
+                        </td>
+                        <td>2022-02-02</td>
+                        <td><a href="">查看详情</a></td>
+                    </tr>
+                    <tr>
+                        <td>XXX</td>
+                        <td><img src="" alt=""></td>
+                        <td>服装</td>
+                        <td>￥100.00</td>
+                        <td>100</td>
+                        <td>
+                            <i id="y-star" class="fas fa-star"></i>
+                            <i id="y-star" class="fas fa-star"></i>
+                            <i id="star" class="fas fa-star"></i>
+                        </td>
+                        <td>
+                            <div class="click-btn">
+                                <div class="switch">
+                                    <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                                    <label for="cmn-toggle-1"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+                                    <label for="cmn-toggle-4"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-7" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+                                    <label for="cmn-toggle-7" data-on="Yes" data-off="No"></label>
+                                  </div>
+                            </div>
+                        </td>
+                        <td>2022-02-02</td>
+                        <td><a href="">查看详情</a></td>
+                    </tr>
+                    <tr>
+                        <td>XXX</td>
+                        <td><img src="" alt=""></td>
+                        <td>服装</td>
+                        <td>￥100.00</td>
+                        <td>100</td>
+                        <td>
+                            <i id="star" class="fas fa-star"></i>
+                            <i id="star" class="fas fa-star"></i>
+                            <i id="star" class="fas fa-star"></i>
+                        </td>
+                        <td>
+                            <div class="click-btn">
+                                <div class="switch">
+                                    <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                                    <label for="cmn-toggle-1"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+                                    <label for="cmn-toggle-4"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-7" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+                                    <label for="cmn-toggle-7" data-on="Yes" data-off="No"></label>
+                                  </div>
+                            </div>
+                        </td>
+                        <td>2022-02-02</td>
+                        <td><a href="">查看详情</a></td>
+                    </tr>
+                    <tr>
+                        <td>XXX</td>
+                        <td><img src="" alt=""></td>
+                        <td>服装</td>
+                        <td>￥100.00</td>
+                        <td>100</td>
+                        <td>
+                            <i id="star" class="fas fa-star"></i>
+                            <i id="star" class="fas fa-star"></i>
+                            <i id="star" class="fas fa-star"></i>
+                        </td>
+                        <td>
+                            <div class="click-btn">
+                                <div class="switch">
+                                    <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                                    <label for="cmn-toggle-1"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+                                    <label for="cmn-toggle-4"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-7" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+                                    <label for="cmn-toggle-7" data-on="Yes" data-off="No"></label>
+                                  </div>
+                            </div>
+                        </td>
+                        <td>2022-02-02</td>
+                        <td><a href="">查看详情</a></td>
+                    </tr>
+                    <tr>
+                        <td>XXX</td>
+                        <td><img src="" alt=""></td>
+                        <td>服装</td>
+                        <td>￥100.00</td>
+                        <td>100</td>
+                        <td>
+                            <i id="y-star" class="fas fa-star"></i>
+                            <i id="y-star" class="fas fa-star"></i>
+                            <i id="y-star" class="fas fa-star"></i>
+                        </td>
+                        <td>
+                            <div class="click-btn">
+                                <div class="switch">
+                                    <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                                    <label for="cmn-toggle-1"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+                                    <label for="cmn-toggle-4"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-7" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+                                    <label for="cmn-toggle-7" data-on="Yes" data-off="No"></label>
+                                  </div>
+                            </div>
+                        </td>
+                        <td>2022-02-02</td>
+                        <td><a href="">查看详情</a></td>
+                    </tr>
+                </table>
+            </div>
+
+
+            <div class="table-div2">
+                <table class="goods-table" >
+                    <tr>
+                        <td>商品名称</td>
+                        <td>图片</td>
+                        <td>商品类别</td>
+                        <td>单价</td>
+                        <td>库存（SKU）</td>
+                        <td>评分</td>
+                        <td>是否上架</td>
+                        <td>上架时间</td>
+                        <td>商品详情</td>
+                    </tr>
+                    <tr>
+                        <td>手机支架</td>
+                        <td><img src="../IMG/15.png" alt=""></td>
+                        <td>生活用品</td>
+                        <td>￥100.00</td>
+                        <td>100</td>
+                        <td>
+                            <i id="y-star" class="fas fa-star"></i>
+                            <i id="y-star" class="fas fa-star"></i>
+                            <i id="star" class="fas fa-star"></i>
+                        </td>
+                        <td>
+                            <div class="click-btn">
+                                <div class="switch">
+                                    <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                                    <label for="cmn-toggle-1"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+                                    <label for="cmn-toggle-4"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-7" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+                                    <label for="cmn-toggle-7" data-on="Yes" data-off="No"></label>
+                                  </div>
+                            </div>
+                        </td>
+                        <td>2022-02-02</td>
+                        <td><a href="JavaScript:;">查看详情</a></td>
+                    </tr>
+                    <tr>
+                        <td>XXX</td>
+                        <td><img src="../IMG/13.png" alt=""></td>
+                        <td>食品</td>
+                        <td>￥100.00</td>
+                        <td>100</td>
+                        <td>
+                            <i id="y-star" class="fas fa-star"></i>
+                            <i id="y-star" class="fas fa-star"></i>
+                            <i id="y-star" class="fas fa-star"></i>
+                        </td>
+                        <td>
+                            <div class="click-btn">
+                                <div class="switch">
+                                    <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                                    <label for="cmn-toggle-1"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+                                    <label for="cmn-toggle-4"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-7" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+                                    <label for="cmn-toggle-7" data-on="Yes" data-off="No"></label>
+                                  </div>
+                            </div>
+                        </td>
+                        <td>2022-02-02</td>
+                        <td><a href="javascript:;" id="check-info2">查看详情</a></td>
+                    </tr>
+                    <tr>
+                        <td>XXX</td>
+                        <td><img src="../IMG/14.png" alt=""></td>
+                        <td>服装</td>
+                        <td>￥100.00</td>
+                        <td>100</td>
+                        <td>
+                            <i id="y-star" class="fas fa-star"></i>
+                            <i id="y-star" class="fas fa-star"></i>
+                            <i id="star" class="fas fa-star"></i>
+                        </td>
+                        <td>
+                            <div class="click-btn">
+                                <div class="switch">
+                                    <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                                    <label for="cmn-toggle-1"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+                                    <label for="cmn-toggle-4"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-7" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+                                    <label for="cmn-toggle-7" data-on="Yes" data-off="No"></label>
+                                  </div>
+                            </div>
+                        </td>
+                        <td>2022-02-02</td>
+                        <td><a href="">查看详情</a></td>
+                    </tr>
+                    <!-- <tr>
+                        <td>XXX</td>
+                        <td><img src="" alt=""></td>
+                        <td>服装</td>
+                        <td>￥100.00</td>
+                        <td>100</td>
+                        <td>
+                            <i id="y-star" class="fas fa-star"></i>
+                            <i id="y-star" class="fas fa-star"></i>
+                            <i id="star" class="fas fa-star"></i>
+                        </td>
+                        <td>
+                            <div class="click-btn">
+                                <div class="switch">
+                                    <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                                    <label for="cmn-toggle-1"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+                                    <label for="cmn-toggle-4"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-7" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+                                    <label for="cmn-toggle-7" data-on="Yes" data-off="No"></label>
+                                  </div>
+                            </div>
+                        </td>
+                        <td>2022-02-02</td>
+                        <td><a href="">查看详情</a></td>
+                    </tr>
+                    <tr>
+                        <td>XXX</td>
+                        <td><img src="" alt=""></td>
+                        <td>服装</td>
+                        <td>￥100.00</td>
+                        <td>100</td>
+                        <td>
+                            <i id="y-star" class="fas fa-star"></i>
+                            <i id="y-star" class="fas fa-star"></i>
+                            <i id="star" class="fas fa-star"></i>
+                        </td>
+                        <td>
+                            <div class="click-btn">
+                                <div class="switch">
+                                    <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                                    <label for="cmn-toggle-1"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+                                    <label for="cmn-toggle-4"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-7" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+                                    <label for="cmn-toggle-7" data-on="Yes" data-off="No"></label>
+                                  </div>
+                            </div>
+                        </td>
+                        <td>2022-02-02</td>
+                        <td><a href="">查看详情</a></td>
+                    </tr>
+                    <tr>
+                        <td>XXX</td>
+                        <td><img src="" alt=""></td>
+                        <td>服装</td>
+                        <td>￥100.00</td>
+                        <td>100</td>
+                        <td>
+                            <i id="y-star" class="fas fa-star"></i>
+                            <i id="y-star" class="fas fa-star"></i>
+                            <i id="star" class="fas fa-star"></i>
+                        </td>
+                        <td>
+                            <div class="click-btn">
+                                <div class="switch">
+                                    <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                                    <label for="cmn-toggle-1"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+                                    <label for="cmn-toggle-4"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-7" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+                                    <label for="cmn-toggle-7" data-on="Yes" data-off="No"></label>
+                                  </div>
+                            </div>
+                        </td>
+                        <td>2022-02-02</td>
+                        <td><a href="">查看详情</a></td>
+                    </tr>
+                    <tr>
+                        <td>XXX</td>
+                        <td><img src="" alt=""></td>
+                        <td>服装</td>
+                        <td>￥100.00</td>
+                        <td>100</td>
+                        <td>
+                            <i id="star" class="fas fa-star"></i>
+                            <i id="star" class="fas fa-star"></i>
+                            <i id="star" class="fas fa-star"></i>
+                        </td>
+                        <td>
+                            <div class="click-btn">
+                                <div class="switch">
+                                    <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                                    <label for="cmn-toggle-1"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+                                    <label for="cmn-toggle-4"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-7" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+                                    <label for="cmn-toggle-7" data-on="Yes" data-off="No"></label>
+                                  </div>
+                            </div>
+                        </td>
+                        <td>2022-02-02</td>
+                        <td><a href="">查看详情</a></td>
+                    </tr>
+                    <tr>
+                        <td>XXX</td>
+                        <td><img src="" alt=""></td>
+                        <td>服装</td>
+                        <td>￥100.00</td>
+                        <td>100</td>
+                        <td>
+                            <i id="star" class="fas fa-star"></i>
+                            <i id="star" class="fas fa-star"></i>
+                            <i id="star" class="fas fa-star"></i>
+                        </td>
+                        <td>
+                            <div class="click-btn">
+                                <div class="switch">
+                                    <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                                    <label for="cmn-toggle-1"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+                                    <label for="cmn-toggle-4"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-7" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+                                    <label for="cmn-toggle-7" data-on="Yes" data-off="No"></label>
+                                  </div>
+                            </div>
+                        </td>
+                        <td>2022-02-02</td>
+                        <td><a href="">查看详情</a></td>
+                    </tr>
+                    <tr>
+                        <td>XXX</td>
+                        <td><img src="" alt=""></td>
+                        <td>服装</td>
+                        <td>￥100.00</td>
+                        <td>100</td>
+                        <td>
+                            <i id="y-star" class="fas fa-star"></i>
+                            <i id="y-star" class="fas fa-star"></i>
+                            <i id="y-star" class="fas fa-star"></i>
+                        </td>
+                        <td>
+                            <div class="click-btn">
+                                <div class="switch">
+                                    <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                                    <label for="cmn-toggle-1"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+                                    <label for="cmn-toggle-4"></label>
+                                  </div>
+                                  
+                                  <div class="switch">
+                                    <input id="cmn-toggle-7" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+                                    <label for="cmn-toggle-7" data-on="Yes" data-off="No"></label>
+                                  </div>
+                            </div>
+                        </td>
+                        <td>2022-02-02</td>
+                        <td><a href="">查看详情</a></td>
+                    </tr> -->
+                </table>
+            </div>
+
+
+            <ul class="serial-num">
+                <li><</li>
+                <li id="one">1</li>
+                <li id="two">2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li id="right">></li>
+            </ul>
+        </div>
+        <!-- 内容区5 商品详情-->
+        <div class="goods-info">
+            <h2>商品详情</h2>
+    
+                <div class="picture">
+                    <img src="" alt="" class="big-picture">
+                </div>
+        
+                <div class="text-info">
+                    <ul class="goods-intro">
+                        <li>商品名称：</li>
+                        <li>商品信息：</li>
+                        <li class="price">价格</li>
+                        <li class="size">型号
+                            <!-- <button>S</button>
+                            <button>M</button>
+                            <button>L</button>
+                            <button>XL</button> -->
+                        </li>
+                        <li>数量
+                           <a href=""><button class="num">-</button></a> 
+                           <input type="text" value=" 0" class="number">
+                           <a href=""><button class="num">+</button></a>
+                           件
+                        </li>
+                        <li>
+                            <button class="purchase">编辑</button>
+            
+                        </li>
+                    </ul>
+                </div>
+        
+            <div>
+               <ul class="wrapper">
+                <li>
+                    宝贝详情
+                </li>
+                <li>
+                    评价
+                </li>
+               </ul>
+        
+               <!-- 宝贝详情 -->
+               <div class="information">
+                  <ul class="picture-show">
+                    <li class="li">细节图片展示:</li>
+                    <li class="li"><img src="" alt=""></li>
+                    <li class="li"><img src="" alt=""></li>
+                    <li class="plus-picture"><a href="">
+                        <i id="plus" class="fas fa-plus"></i>
+                        上传图片</a></li>
+                  </ul>  
+                  <div class="detail">
+                    <div>商品详情介绍：</div>
+                    <div><textarea name="" id="text" placeholder="请输入"></textarea></div>
+                  </div>     
+               </div>
+        
+               <!-- 评价 -->
+               <div>
+        
+               </div>
+            </div>
+        </div>
+        <!-- 内容区六 新增商品 -->
+        <div class="new-plus">
+            <h2>新增商品</h2>
+            <ul class="plus-ul">
+                <li>
+                    商品名称：
+                    <input type="text" placeholder="请输入">
+                </li>
+                <li>
+                    商品分类：
+                    <select name="" id="select"> 
+                        <option value="">服装</option>
+                        <option value="">食品</option>
+                        <option value="">生活用品</option>
+                    </select>
+                </li>
+                <li>
+                    商品价格：
+                    <input type="text" placeholder="请输入">
+                </li>
+                <li id="norm">
+                    <p>规格：</p>
+                    <div class="box">
+                        <input id="input1" type="text" placeholder="规格名1">
+                        <!-- <input type="checkbox"> -->
+                        
+                        <input id="input1" type="text" placeholder="规格名2">
+                        <!-- <input type="checkbox"> -->
+                        <!-- <br> -->
+                        <input id="input1" type="text" placeholder="规格名3">
+                        <!-- <input type="checkbox"> -->
+                        
+                        <input id="input1" type="text" placeholder="规格名4">
+                        <!-- <input type="checkbox"> -->
+                        <!-- <br> -->
+                    </div>
+                    
+                </li>
+                <li id="instruction">
+                    商品说明：<br>
+                    <textarea placeholder="请输入" style="height:100px; width:330px;margin-left: 85px;"></textarea>
+                </li>
+                <li class="jia-p">
+                    图片：    
+                    <a href="" >
+                        <div class="plus-picture">
+                            <i id="plus" class="fas fa-plus"></i>
+                        上传图片
+                        </div>
+                        
+                    </a>
+                </li>
+                <li id="YN">
+                    是否启用：
+                    <input id="input2" type="checkbox">
+                </li>
+            </ul>
+            <button class="null">清空</button>
+            <button class="jia">添加</button>
+        </div>
+        <!-- 内容区七  客户详情-->
+        <div class="custome-info">
+            <h2>客户详情</h2>
+            <ul class="custome-ul">    
+                <li >
+                    <select name="" id="member">
+                        <option value="">会员</option>
+                        <option value="">非会员</option>
+                    </select>
+                    <input id="screen1" type="submit" value="筛选">
+                </li>
+                <li >
+                    <select name="" id="number">
+                        <option value="">购买次数</option>
+                        <option value="">购买金额</option>
+                        <option value="">购买日期</option>
+        
+                    </select>
+                    <input id="screen2" type="submit" value="排序">
+                </li>
+                <li class="li-number">
+                    <input id="phone-number" type="text" placeholder="请输入客户手机号">
+                    <button id="num-research">搜索</button>
+                </li>       
+                
+            </ul>
+    
+            <table border="1px solid " style="border-collapse: separate; border-left-spacing: 10px;" class="custome-table">
+                <tr class="row" id="first-row">
+                    <td>客户ID</td>
+                    <td>会员（是/否）</td>
+                    <td>购买次数</td>
+                    <td>收货地址</td>
+                    <td>订单日期</td>
+                    <td>总消费金额</td>
+                    <td>消费订单</td>
+                    <td>操作</td>
+                </tr>
+               <tr>
+                <td>XXX</td>
+                <td>是</td>
+                <td>10</td>
+                <td>x省x市x区<br>
+                    <a href="">更多</a>
+                </td>
+                <td>2022-02-02</td>
+                <td>￥100</td>
+                <td>查看详情</td>
+                <td>
+                    <a href="javascript:;">发放优惠券</a>
+                    <a href="javascript:;">拉入黑名单</a>
+                    <a href="javascript:;">私信</a>
+                </td>
+               </tr>
+               <tr>
+                <td>XXX</td>
+                <td>是</td>
+                <td>10</td>
+                <td>x省x市x区<br>
+                    <a href="">更多</a>
+                </td>
+                <td>2022-02-02</td>
+                <td>￥100</td>
+                <td>查看详情</td>
+                <td>
+                    <a href="">发放优惠券</a>
+                    <a href="">拉入黑名单</a>
+                    <a href="">私信</a>
+                </td>
+               </tr>
+               <tr>
+                <td>XXX</td>
+                <td>是</td>
+                <td>10</td>
+                <td>x省x市x区<br>
+                    <a href="">更多</a>
+                </td>
+                <td>2022-02-02</td>
+                <td>￥100</td>
+                <td>查看详情</td>
+                <td>
+                    <a href="">发放优惠券</a>
+                    <a href="">拉入黑名单</a>
+                    <a href="">私信</a>
+                </td>
+               </tr>
+               <tr>
+                <td>XXX</td>
+                <td>是</td>
+                <td>10</td>
+                <td>x省x市x区<br>
+                    <a href="">更多</a>
+                </td>
+                <td>2022-02-02</td>
+                <td>￥100</td>
+                <td>查看详情</td>
+                <td>
+                    <a href="">发放优惠券</a>
+                    <a href="">拉入黑名单</a>
+                    <a href="">私信</a>
+                </td>
+               </tr>
+               <tr>
+                <td>XXX</td>
+                <td>是</td>
+                <td>10</td>
+                <td>x省x市x区<br>
+                    <a href="">更多</a>
+                </td>
+                <td>2022-02-02</td>
+                <td>￥100</td>
+                <td>查看详情</td>
+                <td>
+                    <a href="">发放优惠券</a>
+                    <a href="">拉入黑名单</a>
+                    <a href="">私信</a>
+                </td>
+               </tr>
+                
+            </table>
+        </div>
+        <!-- 内容区八 基本信息 -->
+        <div class="basic-info">
+            <h2>店铺基本信息</h2>
+            <div class="info-btn">
+                <!-- <button>新建店铺</button> -->
+                <button id="qqq">修改店铺装修</button>
+                <button>关闭店铺</button>
+            </div>
+            <div>
+                <p>基本信息</p>
+                <ul class="basic-info-ul">
+                    <li>
+                        店铺名称
+                        <input readonly type="text" name="" id="shop-name" value="IFashoin专卖店">
+                    </li>
+                    <li>
+                        类别
+                        <select name="" id="">
+                            <option value="">服装类</option>
+                            <option value="">电器类</option>
+                            <option value="">生活用品类</option>
+                            <option value="">食品类</option>
+                        </select>
+                    </li>
+                    <li>
+                        店铺管理员
+                        <input type="text" id="shop-manager" value="小F; 小Q;">
+                    </li>
+                    <li class="shop-head">
+                        店铺头像
+                        <img src="../IMG/店铺头像.png" alt="">
+                    </li>
+                    <li>
+                        店铺装修
+                        <input type="text" value="简约" id="shop-decorate">
+                        <button class="change-style">修改</button>
+                    </li>
+                    <li class="pay">
+                        店铺支付设置
+                        <input type="checkbox" name="" id="" checked>支付宝
+                        <input type="checkbox" name="" id="">微信
+                        <input type="checkbox" name="" id="" checked>员工卡
+                        <input type="checkbox" name="" id="">银行卡
+        
+        
+                    </li>
+                </ul>
+            </div>
+            <!-- tanchu -->
+            <div id="cover1" style="background-color: black;"></div>
+            <div class="bindcard">
+                <p>修改店铺装修<i class="fas fa-times" id="shut2"></i></p>
+                请选择：
+                <select name="" id="">
+                    <option value="">简约</option>
+                    <option value="">浪漫</option>
+                    <option value="">清新</option>
+                </select>
+                <br>
+                <button id="bind2">修改</button>
+            </div>
+        </div>
+        <!-- 内容区九 发票管理 -->
+        <div class="power-manege">
+            <h2>发票管理</h2>
+            <div class="model">
+                <p>发票模板</p>
+                <ul class="buyer">
+                    <li>购买方：</li>
+                    <li>购买方手机号：</li>
+                    <li>购买方地址：</li>
+                    <li>开户行及账号：</li>
+                </ul>
+                <ul class="seller">
+                    <li>销售方名称</li>
+                    <li>纳税人识别号：</li>
+                    <li>地址、电话：</li>
+                    <li>开户行及账号：</li>
+                </ul>
+                <table class="goods" border="1px solid "  >
+                    <tr>
+                        <td>货物或应税劳务、服务名称</td>
+                        <td>规格型号</td>
+                        <td>单位</td>
+                        <td>金额</td>
+                        <td>税率</td>
+                        <td>税额</td> 
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>合计</td>
+                        <td colspan="5"></td>
+                    </tr>
+                </table>
+                
+                <ul class="ender">
+                    <li>收款人：</li>
+                    <li>复核：</li>
+                    <li>开票人：</li>
+                    <li>销售方：</li>
+                </ul>
+                <div class="bell-apply">
+                    <div>发票申请</div>
+                    <table class="apply-table">
+                        <tr>
+                            <td>订单号</td>
+                            <td>买家ID</td>
+                            <td>店铺名</td>
+                            <td>商品ID</td>
+                            <td>商品单价</td>
+                            <td>购买数量</td>
+                            <td>金额</td>
+                            <td>申请时间</td>
+                            <td>申请状态</td>
+                            <td>审核员</td>
+    
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            
+        </div>
+        <!-- 内容区十 店铺公告-->
+        <div class="shop-notice">
+            <h2>店铺公告</h2>
+            <ul class="notice-ul">
+                <li>
+                    发布者：
+                    <input type="text" placeholder="请输入您的管理员ID">
+                    <input type="password" placeholder="请输入您的管理员密码">
+    
+                </li>
+                <li>
+                    公告内容：
+                    <textarea name="" id="" placeholder="在此输入公告内容"></textarea>
+                </li>
+                <li>
+                    公告类型：
+                    <select name="" id="">
+                        <option value="">类型1</option>
+                        <option value="">类型2</option>
+                        <option value="">类型3</option>
+                    </select>
+                </li>
+                <li>
+                    图片：
+                    <a href="">
+                        <i style="color:rgb(166, 164, 164) ;" class="fas fa-plus"></i>
+                        <br>
+                        添加图片
+                    </a>
+                </li>
+    
+            </ul>
+            <button class="announce">发布公告</button>
+            <button class="clean-up">清空</button>
+            <div class="history-notice">
+                <h2>历史公告</h2>
+                <div class="search-notice">
+                    <input type="text" placeholder="搜索历史公告">
+                    <i style="color: black;" class="fas fa-search"></i>
+                </div>
+               
+                <ul class="history-notice-ul">
+                    <li>
+                        <textarea name="" id="" cols="30" rows="10">
+                            提到新能源汽车，很多人首先想到的就是特斯拉。在Model 3国产后，月销量破万的数据似乎更是加强了特斯拉的“神话”。当特斯拉还在主打Model 3的时候，国产电动汽车元老——比亚迪再推出汉EV。并且以27万+的超低价格为消费者奉上了“高性能版”。那它到底够高性能么？
+    为了验证汉EV高性能版的综合产品力，我们将从性能、舒适便利性、能耗、充电、驾驶体验、空间等多个角度对它进行全面评测。同时在直线加速、赛道圈速和电池管理这三项测试上，我们还请来了特斯拉Model 3长续航版作为标杆，给大家做个参考：比亚迪汉EV PK 特斯拉Model 3 是针尖对麦芒？还是实力悬殊？
+                        </textarea>
+                    </li>
+                    <li>
+                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                    </li>
+                    <li>
+                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                    </li>
+                    <li>
+                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                    </li>
+                </ul>
+            </div>
+               
+            
+        </div>
+        <!-- 内容区十一 店铺活动 -->
+        <div class="shop-activity">
+            <h2>店铺活动</h2>
+            <ul class="activity-ul">
+                <li>促销活动</li>
+                <li>周年活动</li>
+                <li>新增活动</li>
+                <li>活动详情</li>
+            </ul>
+            <ul class="activity-ul2">
+                <li>
+                    生效日期：
+                    <input type="date">
+                </li>
+                <li>
+                    促销店铺：
+                    <select name="" id="">
+                        <option value="">全部店铺</option>
+                        <option value="">店铺1</option>
+                        <option value="">店铺2</option>
+                        <option value="">店铺3</option>
+                    </select>
+                </li>
+                <li>
+                    截止日期：
+                    <input type="date">
+                </li>
+                <li>
+                    活动名称：
+                    <input type="text" name="" id="">
+                </li>
+            </ul>
+    
+            <div class="">
+                <table class="activity-table1" border="1px solid " style="border-collapse: separate; border-left-spacing: 10px;">
+                    <tr>
+                        <td>活动编号</td>
+                        <td>活动名称</td>
+                        <td>活动类型</td>
+                        <td>开始时间</td>
+                        <td>结束时间</td>
+                        <td>活动状态</td>
+                        <td>发起人</td>
+                        <td>审核人</td>
+                        <td>审核时间</td>
+                    </tr>
+                    <tr>
+                        <td>12345678</td>
+                        <td>部分促销</td>
+                        <td>满减优惠</td>
+                        <td>2022-01-01</td>
+                        <td>2022-02-02</td>
+                        <td><a href="">待审核</a></td>
+                        <td>张三</td>
+                        <td>李四</td>
+                        <td>2022-01-01</td>
+                    </tr>
+                    <tr>
+                        <td>12345678</td>
+                        <td>部分促销</td>
+                        <td>满减优惠</td>
+                        <td>2022-01-01</td>
+                        <td>2022-02-02</td>
+                        <td><a href="">待审核</a></td>
+                        <td>张三</td>
+                        <td>李四</td>
+                        <td>2022-01-01</td>
+                    </tr>
+                    <tr>
+                        <td>12345678</td>
+                        <td>部分促销</td>
+                        <td>满减优惠</td>
+                        <td>2022-01-01</td>
+                        <td>2022-02-02</td>
+                        <td><a href="">待审核</a></td>
+                        <td>张三</td>
+                        <td>李四</td>
+                        <td>2022-01-01</td>
+                    </tr>
+                    <tr>
+                        <td>12345678</td>
+                        <td>部分促销</td>
+                        <td>满减优惠</td>
+                        <td>2022-01-01</td>
+                        <td>2022-02-02</td>
+                        <td><a href="">待审核</a></td>
+                        <td>张三</td>
+                        <td>李四</td>
+                        <td>2022-01-01</td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <table class="activity-table2" border="1px solid " style="border-collapse: separate; border-left-spacing: 10px;">
+                    <tr>
+                        <td>商品编号</td>
+                        <td>工厂码</td>
+                        <td>商品名</td>
+                        <td>规格</td>
+                        <td>分类</td>
+                        <td>零售价</td>
+                        <td>销量</td>
+                        <td>销售额</td>
+                        <td>优惠</td>
+                    </tr>
+                    <tr>
+                        <td>111111</td>
+                        <td>XXXXXX</td>
+                        <td>XXX</td>
+                        <td>8</td>
+                        <td>类别一</td>
+                        <td>110</td>
+                        <td>1000</td>
+                        <td>0999</td>
+                        <td><a href="">优惠详情</a></td>
+                    </tr>
+                    <tr>
+                        <td>111111</td>
+                        <td>XXXXXX</td>
+                        <td>XXX</td>
+                        <td>8</td>
+                        <td>类别一</td>
+                        <td>110</td>
+                        <td>1000</td>
+                        <td>0999</td>
+                        <td><a href="">优惠详情</a></td>
+                    </tr>
+                    <tr>
+                        <td>111111</td>
+                        <td>XXXXXX</td>
+                        <td>XXX</td>
+                        <td>8</td>
+                        <td>类别一</td>
+                        <td>110</td>
+                        <td>1000</td>
+                        <td>0999</td>
+                        <td><a href="">优惠详情</a></td>
+                    </tr>
+                    <tr>
+                        <td>111111</td>
+                        <td>XXXXXX</td>
+                        <td>XXX</td>
+                        <td>8</td>
+                        <td>类别一</td>
+                        <td>110</td>
+                        <td>1000</td>
+                        <td>0999</td>
+                        <td><a href="">优惠详情</a></td>
+                    </tr>
+                    <tr>
+                        <td>111111</td>
+                        <td>XXXXXX</td>
+                        <td>XXX</td>
+                        <td>8</td>
+                        <td>类别一</td>
+                        <td>110</td>
+                        <td>1000</td>
+                        <td>0999</td>
+                        <td><a href="">优惠详情</a></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="activity-content">
+                <p>活动内容详情</p>
+                <ul class="activity-content-ul">
+                    <li>
+                        促销类型
+                        <input type="checkbox" name="" id="">单品优惠
+                        <input type="checkbox" name="" id="">清仓促销
+                        <input type="checkbox" name="" id="">搭售
+                        <input type="checkbox" name="" id="">满减优惠
+                        <input type="checkbox" name="" id="">节日促销
+    
+                    </li>
+                    <li>
+                        计算规则
+                        <input type="checkbox" name="" id="">活动商品
+                        <input type="checkbox" name="" id="">整单
+                    </li>
+                    <li>
+                        促销规则
+                        <input type="checkbox" name="" id="">活动商品满<input type="text">元 打<input type="text">折扣<br>
+                        <input style="margin-left: 88px;" type="checkbox" name="" id="">活动商品满<input type="text">件 打<input type="text">折扣
+                    </li>
+                    <li></li>
+                    <li>
+                        活动商品
+                        <a class="activity-content-a" href=""><i style="color:#FF9502 ;" class="fas fa-plus-circle"></i>点击批量新增活动商品</a>
+                        <div class="plus-activity-goods">
+                            <textarea readonly name="" id="" cols="30" rows="10"></textarea>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 内容区十二  销售统计-->
+        <div class="sale-all">
+            <h2>销售统计</h2>         
+                <div class="income">
+                <p>收入详情</p>
+                    <ul>
+                        
+                        <li>分布概况</li>
+                        <li>共计收入：<a href="">1234￥</a></li>
+                        <li>平均每日收入：<a href="">1234￥</a></li>
+                        <li>共计销售量：<a href="">1111件</a></li>
+                        <li>收入主要类型：</li>
+                    </ul>
+                    <img src="" alt="">
+                </div>
+            
+                <div class="shop-sale">
+                    <div>店铺销售情况</div>
+                    <ul class="ul-sale">    
+                        <!-- <li class="li-sale">
+                            <select name="" id="number">
+                                <option value="">0000001</option>
+                                <option value="">0000002</option>
+                                <option value="">0000003</option>
+                
+                            </select>
+                        </li> -->
+                        <li class="li-sale">
+                            <select name="" id="number">
+                                <option value="">销售量</option>
+                                <option value="">销售额</option>
+                                <option value="">日期</option>
+                
+                            </select>
+                            <input id="put1" type="submit" value="筛选">
+                        </li>
+                        <li class="li-sale">
+                            <input type="text" name="" id="goods-ID" placeholder="输入商品ID">
+                            <input id="put2" type="submit" value="搜索">
+                        </li>       
+                        
+                    </ul>
+                    <table class="goods-sale">
+                        <tr>
+                            <td>商品ID</td>
+                            <td>商品名</td>
+                            <td>商品类型</td>
+                            <td>销售量</td>
+                            <td>销售总额</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+                   
+        </div>
+        <!-- 内容区十三 资金统计 -->
+        <div class="money-all">
+            <h2>资金统计</h2>
+    
+            <ul class="money-ul">
+                <li>
+                    <select name="" id="">
+                        <option value="">交易类型1</option>
+                        <option value="">交易类型2</option>
+                        <option value="">交易类型3</option>
+                    </select>
+                    <button><i class="fas fa-filter"></i></button>
+                </li>
+                <li>
+                    <input type="text" placeholder="请选择交易时间">
+                    <button><i class="fas fa-search"></i></button>
+                </li>
+                <li>
+                    <input type="text" name="" id="" placeholder="店铺名查询">
+                    <button><i class="fas fa-search"></i></button>
+                </li>
+                <li>
+                    <button value="一键导出" id="out">
+                        一键导出
+                        <!-- <select name="" id="">
+                            <option value="">excel</option>
+                        </select> -->
+                    </button>
+    
+                </li>
+            </ul>
+            <table class="out-table">
+                <tr>
+                    <td>编号</td>
+                    <td>订单号</td>
+                    <td>交易类型</td>
+                    <td>订单金额</td>
+                    <td>优惠券金额</td>
+                    <td>支付金额</td>
+                    <td>支付方式</td>
+                    <td>支付时间</td>
+                    <td>店铺</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+            <div class="money-img">
+                <img src="" alt="">
+                <img src="" alt="">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

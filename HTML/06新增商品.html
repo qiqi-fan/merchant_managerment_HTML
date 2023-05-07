@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/新增商品.css">
+    <link rel="stylesheet" href="../font/css/all.css">
+</head>
+<body>
+    <div class="new-plus">
+        <h2>新增商品</h2>
+        <ul class="plus-ul">
+            <li>
+                商品名称：
+                <input type="text" placeholder="请输入">
+            </li>
+            <li>
+                商品分类：
+                <select name="" id="select"> 
+                    <option value="">分类1</option>
+                    <option value="">分类2</option>
+                    <option value="">分类3</option>
+                </select>
+            </li>
+            <li>
+                商品价格：
+                <input type="text" placeholder="请输入">
+            </li>
+            <li id="norm">
+                <p>规格：</p>
+                <div class="box">
+                    <input id="input1" type="text" placeholder="规格名1">
+                    <!-- <input type="checkbox"> -->
+                    
+                    <input id="input1" type="text" placeholder="规格名2">
+                    <!-- <input type="checkbox"> -->
+                    <!-- <br> -->
+                    <input id="input1" type="text" placeholder="规格名3">
+                    <!-- <input type="checkbox"> -->
+                    
+                    <input id="input1" type="text" placeholder="规格名4">
+                    <!-- <input type="checkbox"> -->
+                    <!-- <br> -->
+                </div>
+                
+            </li>
+            <li id="instruction">
+                商品说明：<br>
+                <textarea placeholder="请输入" style="height:100px; width:330px;margin-left: 85px;"></textarea>
+            </li>
+            <li class="jia-p">
+                图片：    
+                <a href="" >
+                    <div class="plus-picture">
+                        <i id="plus" class="fas fa-plus"></i>
+                    上传图片
+                    </div>
+                    
+                </a>
+            </li>
+            <li id="YN">
+                是否启用：
+                <input id="input2" type="checkbox">
+            </li>
+        </ul>
+        <button class="null">清空</button>
+        <button class="jia">添加</button>
+    </div>
+</body>
+</html>

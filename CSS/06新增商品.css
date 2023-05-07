@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.new-plus{
+    width: 1080px;
+    height: 900px;
+    /* background-color: antiquewhite; */
+    margin-top: -900px;
+    margin-left: 200px;
+    border-bottom: 1px solid rgb(189, 189, 189);
+    border-right: 1px solid rgb(189, 189, 189);
+
+}
+.new-plus ul{
+    height: 670px;
+    width: 800px;
+    /* background-color: aquamarine; */
+    margin: 0 auto;
+    padding-top: 50px;
+}
+.plus-ul li input{
+    width: 330px;
+    height: 30px;
+}
+.new-plus ul li{
+    height: 40px;
+    line-height: 40px;
+    margin-left:170px ;
+    margin-top: 10px;
+}
+#select{
+    height: 30px;
+}
+/* #norm{
+    height: 200px;
+} */
+#input1{
+    width: 60px;
+}
+.box{
+    margin-left: 85px;
+    margin-top: -30px;
+}
+#instruction{
+    height: 150px;
+    margin-top: 30px;
+}
+/* .jia-p{
+    height: 580px;
+    width: 100%;
+    background-color: aliceblue;
+} */
+.plus-picture{
+    width: 150px;
+    height: 150px;
+    background-color: rgb(241, 241, 241);
+    color:rgb(189,190,190) ;
+    border: 1px solid ;
+    margin-left: 85px;
+    line-height: 150px;
+    text-align: center;
+    margin-top: -30px;
+
+}
+#plus{
+    color: rgb(189,190,190);
+}
+#YN{
+    margin-top: 160px;
+}
+#input2{
+    margin-left: -150px;
+    /* margin-top: 30px; */
+}
+.null,.jia{
+    width: 120px;
+    height: 40px;
+    border: none;
+    background-color: #FF9502 ;
+    color: white;
+}
+.null{
+    margin-left: 34%;
+}
+.jia{
+    margin-left: 60px;
+}

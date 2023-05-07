@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+h2{
+    font-size: 20px;
+    height: 40px;
+    line-height: 40px;
+}
+.power-manege{
+    width: 1080px;
+    height: 900px;
+    /* background-color: rgb(206, 210, 214); */
+    margin-top: -900px;
+    margin-left: 199px;
+    border-right: 1px solid rgb(189, 189, 189);
+    border-bottom: 1px solid rgb(189, 189, 189);
+}
+.model{
+    width: 1000px;
+    height:440px ;
+    background-color:  rgb(245, 237, 213);
+    border: 1px solid rgb(130, 130, 130);
+    margin-left: 30px;
+}
+.model p{
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    font-size: 19px;
+    display: block;
+    border-bottom: 1px dashed rgb(152, 152, 152);
+}
+.model ul{
+    float: left;
+}
+.buyer,.seller{
+    width: 350px;
+    height: 160px;
+    /* background-color: aquamarine; */
+    margin-left: 60px;
+    /* border: 1px solid rgb(176, 176, 176); */
+    border-radius: 20px;
+}
+.buyer li,.seller li{
+    height: 40px;
+    line-height: 40px;
+    margin-left: 30px;
+    /* border: 1px solid rgb(176, 176, 176); */
+}
+.goods{
+    width: 800px;
+    height: 180px;
+    margin-left: 80px;
+    border-right: 1px solid rgb(142, 146, 146) ;
+    border-bottom: 1px solid rgb(142, 146, 146) ;
+    border-collapse: collapse;
+}
+.goods tr td:nth-child(1){
+    width: 200px;
+
+}
+.goods tr td{
+    border-left: 1px solid rgb(142, 146, 146) ;
+    border-top: 1px solid rgb(142, 146, 146) ;
+
+    width: 100px;
+    text-align: center;
+    height: 30px;
+}
+.goods li:nth-child(6) td:nth-child(2){
+    width:600px ;
+}
+.ender{
+    width: 800px;
+    height: 50px;
+    margin-left: 20px;
+}
+.ender li{
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 120px; 
+}
+.bell-apply{
+    clear: both;
+}
+.bell-apply div{
+    height: 60px;
+    line-height: 80px;
+    font-size: 20px;
+    text-align: center;
+}
+.apply-table{
+    width: 1000px;
+    height: 240px;
+    /* background-color: bisque; */
+    border-right: 1px solid rgb(142, 146, 146) ;
+    border-bottom: 1px solid rgb(142, 146, 146) ;
+    border-collapse: collapse;
+}
+.apply-table tr td{
+    border-left: 1px solid rgb(142, 146, 146) ;
+    border-top: 1px solid rgb(142, 146, 146) ;
+    text-align: center;
+    height:40px ;
+}
+.apply-table tr:nth-child(1){
+    background-color: aliceblue;
+}
+.apply-table tr td:nth-child(1){
+    width: 160px;
+}

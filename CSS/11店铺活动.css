@@ -1,0 +1,140 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #FF9502;
+}
+.shop-activity{
+    width: 1080px;
+    height: 900px;
+    /* background-color: blanchedalmond; */
+    border-right: 1px solid rgb(211, 211, 211);
+    border-bottom: 1px solid rgb(211, 211, 211);
+    margin-top: -900px;
+    margin-left: 198px;
+    overflow-y: auto;
+    /* overflow-x: hidden; */
+    
+}
+h2{
+    margin-left: 30px;
+    /* margin-top: 30px; */
+
+    display: block;
+    height: 50px;
+    line-height: 50px;
+}
+.activity-ul{
+    height: 50px;
+    width: 100%;
+    /* background-color: #FF9502; */
+    border-bottom: 1px solid rgb(211, 211, 211);
+
+}
+.activity-ul li{
+    float: left;
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 50px;
+    text-align: center;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    font-size: 19;
+    /* background-color: #FF9502; */
+    border: 1px solid;
+}
+.activity-ul :nth-child(4){
+   background-color: #FF9502;
+    color: #ffffff;
+    border-color:black ;
+}
+.activity-ul2{
+    width: 100%;
+    height: 100px;
+    /* background-color: #e7eac0; */
+}
+.activity-ul2 li{
+    width: 400px;
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    margin-left: 100px;
+}
+.activity-ul2 li input{
+    width: 150px;
+    height: 25px;
+    padding-left: 5px;
+}
+.activity-ul2 li select{
+    height: 25px;
+
+}
+.activity-table1,.activity-table2{
+    border: none;
+    margin-top: 30px;
+}
+.activity-table1 tr,.activity-table1 tr{
+    height: 35px;
+}
+.activity-table1 tr td{
+    width: 116px;
+    text-align: center;
+}
+.activity-table2 tr td{
+    width: 110px;
+    text-align: center;
+}
+.activity-table1 tr:nth-child(1),.activity-table2 tr:nth-child(1){
+    background-color: #e8e8e5;
+}
+.activity-content{
+    margin-top: 30px;
+    width: 1030px;
+    border-top: 1px solid rgb(176, 171, 171);
+    /* background-color: #e7eac0; */
+}
+.activity-content p{
+    font-size: 20px;
+    display: block;
+    /* margin-left: 40px; */
+    line-height: 40px;
+    
+
+}
+.activity-content ul{
+    width: 90%;
+    /* height: 280px; */
+    margin-left: 40px;
+}
+.activity-content ul li{
+    height: 40px;
+    line-height: 40px;
+}
+.activity-content ul li input,.activity-content ul li a{
+    margin-left: 20px;
+}
+/* .activity-content ul li:last-child{
+    display: block;
+} */
+
+/* .activity-content-a{
+    display: block;
+   margin-top: 100px;
+} */
+.plus-activity-goods{
+    width: 500px;
+    height: 150px;
+    /* border: 1px solid; */
+    margin-left: 100px;
+}
+.plus-activity-goods textarea{
+    width: 500px;
+    height: 150px;
+
+}

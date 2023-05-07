@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #FF9502;
+}
+.custome-info{
+    width: 1080px;
+    height: 900px;
+    /* background-color: blanchedalmond; */
+    border-right: 1px solid rgb(211, 211, 211);
+    border-bottom: 1px solid rgb(211, 211, 211);
+
+    margin-top: -900px;
+    margin-left: 198px;
+    
+}
+h2{
+    margin-left: 30px;
+}
+.custome-ul{
+    width: 1080px;
+    height: 100px;
+    /* background-color: aquamarine; */
+}
+.custome-ul li{
+    float: left;
+    width: 300px;
+    height:100px ;
+    line-height: 100px;
+    margin-left: 20px;
+    
+}
+#member,#number,#phone-number{
+    width: 200px;
+    height: 30px;
+    outline: 0;
+}
+#screen1,#screen2,#num-research{
+    
+    width: 52px;
+    height:29px ;
+    margin-top:20px; 
+    background-color: #FF9502;
+}
+
+.custome-table{
+    border: none;
+}
+.custome-table tr{
+    height: 30px;
+}
+.custome-table tr td{
+    width: 86px;
+    text-align: center;
+    line-height: 30px;
+    overflow: hidden;
+    text-overflow:ellipsis;   
+    white-space: nowrap;
+}
+.custome-table tr td:nth-child(1){
+        width: 150px;
+}
+.custome-table tr td:nth-child(4),.custome-table tr td:nth-child(8){
+    width: 220px;
+}
+table tr:nth-child(2n-1){
+    background-color:#F2F2F2 ;
+}
+.row{
+    padding-left: 20px;
+}
+#first-row{
+    height: 56px;
+}

@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #FF9502;
+}
+.money-all{
+    width: 1080px;
+    height: 900px;
+    /* background-color: blanchedalmond; */
+    border-right: 1px solid rgb(211, 211, 211);
+    border-bottom: 1px solid rgb(211, 211, 211);
+    margin-top: -900px;
+    margin-left: 198px;
+    overflow-y: auto;
+    /* overflow-x: hidden; */
+    
+}
+h2{
+    margin-left: 30px;
+    /* margin-top: 30px; */
+
+    display: block;
+    height: 50px;
+    line-height: 50px;
+}
+.money-ul{
+    width: 1080px;
+    height: 60px;
+    /* background-color: #FF9502; */
+}
+.money-ul li{
+    width: 220px;
+    height: 60px;
+    line-height: 60px;
+    float: left;
+    margin-left: 40px;
+}
+.money-ul li input,.money-ul li select,.money-ul li button{
+    height: 30px;
+}
+.money-ul li button{
+    width: 40px;
+    /* margin-left: 10px; */
+}
+#out{
+    width: 80px;
+    margin-left: 80px;
+    background-color: #FF9502;
+}
+.out-table{
+    border-right: 1px solid rgb(142, 146, 146) ;
+    border-bottom: 1px solid rgb(142, 146, 146) ;
+    border-collapse: collapse;
+    background-color: #f5ede1;
+    height: 400px;
+    /* overflow-y: auto; */
+}
+.out-table tr td{
+    width: 140px;
+    height: 30px;
+    text-align: center;
+    /* overflow: hidden; */
+    border-left: 1px solid rgb(142, 146, 146) ;
+    border-top: 1px solid rgb(142, 146, 146) ;
+}
+.money-img img{
+    width: 400px;
+    height: 300px;
+    margin-left: 100px;
+    margin-top: 40px;
+    
+}

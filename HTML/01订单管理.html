@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/01订单管理.css">
+    <link rel="stylesheet" href="../font/css/all.css">
+    <script>
+       
+    </script>
+    <script src="../JS/jquery-3.6.0.js"></script>
+    <script src="../JS/订单管理.js"></script>
+</head>
+
+<body>
+    <div class="all-order">
+        <h2>全部订单</h2>
+        <ul class="ul-number">
+
+            <li class="li-number">
+                <select name="" id="list-state" class="number">
+                    <option value="">全部订单</option>
+                    <option value="">待付款</option>
+                    <option value="">待发货</option>
+                    <option value="">已发货</option>
+                    <option value="">交易完成</option>
+                </select>
+                <input id="put1" type="submit" value="筛选">
+            </li>
+            <li class="li-number">
+                <input type="number" id="list-num"" class="number" placeholder="请输入订单号">
+
+                <input id="put2" type="submit" value="搜索" >
+            </li>
+
+        </ul>
+
+        <table border="1px solid " style="border-collapse: separate; border-left-spacing: 10px;" class="list-table" id="list-table">
+            <tr class="row" id="first-row">
+                <th>订单单号</th>
+                <th>收获地址</th>
+                <th>订单状态</th>
+                <th>配送员</th>
+                <th>订单日期</th>
+                <th>订单金额/￥</th>
+                <th>发货地</th>
+                <th>收货人</th>
+                <th>签收日期</th>
+                <th>操作</th>
+            </tr>
+            <tr class="row">
+                <td>123456</td>
+                <td>x省x市x区</td>
+                <td>待发货</td>
+                <td>张三</td>
+                <td>2020-8-20</td>
+                <td>100</td>
+                <td>浙江杭州</td>
+                <td>李某</td>
+                <td>2022-8-25</td>
+                <td>
+                    <a class="qwe" href="javascript:;">查看详情</a>
+                    <a class="list-operate" href="javascript:;">删除订单</a>
+                </td>
+            </tr>
+            <tr class="row">
+                <td>222222</td>
+                <td></td>
+                <td>待付款</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <a href="javascript:;">查看详情</a>
+                    <a class="list-operate" href="javascript:;">删除订单</a>
+                </td>
+            </tr>
+            <tr class="row">
+                <td>333333</td>
+                <td></td>
+                <td>交易完成</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <a href="javascript:;">查看详情</a>
+                    <a class="list-operate" href="javascript:;">删除订单</a>
+
+
+                </td>
+            </tr>
+            <tr class="row">
+                <td>444444</td>
+                <td></td>
+                <td>待付款</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <a href="javascript:;">查看详情</a>
+                    <a class="list-operate" href="javascript:;">删除订单</a>
+
+
+                </td>
+            </tr>
+            <tr class="row">
+                <td>1</td>
+                <td></td>
+                <td>待付款</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <a href="javascript:;">查看详情</a>
+                    <a class="list-operate" href="javascript:;">删除订单</a>
+
+
+                </td>
+            </tr>
+            <tr class="row">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <a href="javascript:;">查看详情</a>
+                    <a class="list-operate" href="javascript:;">删除订单</a>
+
+
+                </td>
+            </tr>
+            <tr class="row">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <a href="javascript:;">查看详情</a>
+                    <a class="list-operate" href="javascript:;">删除订单</a>
+
+
+                </td>
+            </tr>
+            <tr class="row">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <a href="javascript:;">查看详情</a>
+                    <a class="list-operate" href="javascript:;">删除订单</a>
+
+                </td>
+            </tr>
+        </table>
+
+        <!-- 遮罩层 -->
+        <div id="cover" style="background-color: black;"></div>
+        <!-- 弹出层1 -->
+        <div class="order-list-div">
+            <div class="title">
+                订单详情
+                <i class="fas fa-times"></i>
+
+            </div>
+
+
+            <div class="tanchu-goods">
+                <p>商品详情</p>
+                <br>
+                <img src="" alt="" height="100px" width="140px" style="margin-left: 50px;">
+                <ul>
+                    <li>商品ID</li>
+                    <li>商品购买数量</li>
+                    <li>商品规格</li>
+                </ul>
+            </div>
+            <div class="list-content">
+                <p>客户详情</p>
+                <ul>
+                    <li>客户ID：</li>
+                    <li>客户在本店铺消费次数：</li>
+                    <li>身份：VIP客户</li>
+                    <li>客户联系方式：</li>
+                </ul>
+            </div>
+        </div>
+        <!-- 弹出层2 -->
+        <!-- <div class="list-operate-div">
+        <div class="title">
+            订单操作
+            <i class="fas fa-times"></i>
+        </div>
+        <button>删除订单</button>
+        <button>其它操作</button>
+    </div> -->
+    </div>
+</body>
+
+</html>

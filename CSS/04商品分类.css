@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #FF9502;
+}
+.goods-class{
+    width: 1078px;
+    height: 900px;
+    /* background-color: blanchedalmond; */
+    border-right: 1px solid rgb(211, 211, 211);
+    border-bottom: 1px solid rgb(211, 211, 211);
+    margin-top: -900px;
+    margin-left: 200px;
+    
+}
+.goods-screen{
+    width: 1078px;
+    height: 60px;
+    /* background-color: aliceblue; */
+}
+.goods-screen li {
+    /* width: 180px; */
+    float: left;
+    height: 100%;
+    line-height:60px;
+}
+.goods-screen>li>select,.goods-screen>li>input{
+    width: 180px;
+    height: 40px;
+    margin-left: 30px;
+}
+.goods-screen>li>button{
+    height: 40px;
+    width: 60px;
+    color: white;
+    background-color: #FF9502;
+
+}
+.goods-screen>li>input{
+    height: 36px;
+    margin-left: 80px;
+}
+#btn03{
+    width: 100px;
+    margin-left: 80px;
+    border: none;
+}
+/* 增加滚动条 */
+.table-div{
+    height: 740px;
+    width: 1080px;
+    /* background-color: #FF9502; */
+    overflow: auto;
+}
+.goods-table{
+    border-right: 1px solid rgb(142, 146, 146) ;
+    border-bottom: 1px solid rgb(142, 146, 146) ;
+    border-collapse: collapse;
+}
+
+.goods-table tr td{
+    width: 250px;
+    text-align: center;
+    overflow: hidden;
+    border-left: 1px solid rgb(142, 146, 146) ;
+    border-top: 1px solid rgb(142, 146, 146) ;
+
+}
+/* .goods-table tr td:nth-child(1){
+    width: 180px;
+} */
+.goods-table tr td:nth-child(2){
+    width: 450px;
+    /* height: 200px; */
+}
+.goods-table tr:nth-child(1){
+    height: 40px;
+}
+.goods-table tr:nth-child(2n-1){
+    background-color:#b1d9e5 ;
+}
+.goods-table tr{
+    height: 80px;
+}
+.goods-table  tr td img{
+    width: 150px;
+    height: 95px;
+    margin-top: 10px;
+    /* background-color: #b1d9e5; */
+}
+.serial-num{
+    /* position: absolute; */
+    height: 40px;
+    width: 460px;
+    margin: 0 auto;
+    border: 1px solid rgb(203, 202, 202);
+    margin-top: 10px;
+    cursor: pointer;
+}
+.serial-num li{
+    height: 40px;
+    /* background-color: #b1d9e5; */
+    width: 40px;
+    float: left;
+    margin-left: 10px;
+    border-left: 1px solid rgb(203, 202, 202);
+    border-right: 1px solid rgb(203, 202, 202);
+
+    line-height: 40px;
+    text-align: center;
+}
+#y-star{
+    color:#FF9502;
+}
+#star{
+    color: #e4e2e2;
+    /* border: 1px solid #FF9502; */
+    /* text-shadow: -1px 0 #FF9502,0 1px #FF9502,1px 0 #FF9502,0 -1px,#FF9502; */
+}

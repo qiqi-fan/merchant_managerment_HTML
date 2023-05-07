@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品分类</title>
+    <link rel="stylesheet" href="../CSS/04商品分类.css">
+    <style>
+        .cmn-toggle {
+            position: absolute;
+            margin-left: -9999px;
+            visibility: hidden;
+        }
+
+        .cmn-toggle+label {
+            display: block;
+            position: relative;
+            cursor: pointer;
+            outline: none;
+            user-select: none;
+        }
+
+        input.cmn-toggle-round+label {
+            padding: 2px;
+            width: 60px;
+            height: 30px;
+            background-color: #dddddd;
+            border-radius: 60px;
+        }
+
+        input.cmn-toggle-round+label:before,
+        input.cmn-toggle-round+label:after {
+            display: block;
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            bottom: 1px;
+            content: "";
+        }
+
+        input.cmn-toggle-round+label:before {
+            right: 1px;
+            background-color: #f1f1f1;
+            border-radius: 30px;
+            transition: background 0.4s;
+        }
+
+        input.cmn-toggle-round+label:after {
+            width: 28px;
+            background-color: #fff;
+            border-radius: 100%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            transition: margin 0.4s;
+        }
+
+        input.cmn-toggle-round:checked+label:before {
+            background-color: #8ce196;
+        }
+
+        input.cmn-toggle-round:checked+label:after {
+            margin-left: 32px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="goods-class">
+        <h2>商品分类</h2>
+        <ul class="goods-screen">
+            <li>
+                <select name="" id="">
+                    <option value="">食品</option>
+                    <option value="">服装</option>
+                    <option value="">家用电器</option>
+                </select>
+            </li>
+            <li>
+                <select name="" id="">
+                    <option value="">待上架</option>
+                    <option value="">已发布</option>
+                    <option value="">已下架</option>
+                    <option value="">已售空</option>
+                </select>
+            </li>
+            <li>
+                <button id="btn01">筛选</button>
+            </li>
+            <li>
+                <input type="text" name="" id="" placeholder="请输入商品名称">
+            </li>
+            <li>
+                <button id="btn02">搜索</button>
+            </li>
+            <li>
+                <button id="btn03">新增商品</button>
+            </li>
+
+        </ul>
+        <table class="goods-table" >
+            <tr>
+                <td>商品名称</td>
+                <td>图片</td>
+                <td>商品类别</td>
+                <td>单价</td>
+                <td>库存（SKU）</td>
+                <td>评分</td>
+                <td>是否上架</td>
+                <td>上架时间</td>
+                <td>商品详情</td>
+            </tr>
+            <tr>
+                <td>XXX</td>
+                <td><img src="" alt=""></td>
+                <td>服装</td>
+                <td>￥100.00</td>
+                <td>100</td>
+                <td>4</td>
+                <td>
+                    <div class="switch">
+                        <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                        <label for="cmn-toggle-1"></label>
+                    </div>
+
+                    <div class="switch">
+                        <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+                        <label for="cmn-toggle-4"></label>
+                    </div>
+
+                    <div class="switch">
+                        <input id="cmn-toggle-7" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+                        <label for="cmn-toggle-7" data-on="Yes" data-off="No"></label>
+                    </div>
+                </td>
+                <td>2022-02-02</td>
+                <td><a href="">查看详情</a></td>
+            </tr>
+            <tr>
+                <td>XXX</td>
+                <td><img src="" alt=""></td>
+                <td>服装</td>
+                <td>￥100.00</td>
+                <td>100</td>
+                <td>4</td>
+                <td>1</td>
+                <td>2022-02-02</td>
+                <td><a href="">查看详情</a></td>
+            </tr>
+            <tr>
+                <td>XXX</td>
+                <td><img src="" alt=""></td>
+                <td>服装</td>
+                <td>￥100.00</td>
+                <td>100</td>
+                <td>4</td>
+                <td>1</td>
+                <td>2022-02-02</td>
+                <td><a href="">查看详情</a></td>
+            </tr>
+            <tr>
+                <td>XXX</td>
+                <td><img src="" alt=""></td>
+                <td>服装</td>
+                <td>￥100.00</td>
+                <td>100</td>
+                <td>4</td>
+                <td>1</td>
+                <td>2022-02-02</td>
+                <td><a href="">查看详情</a></td>
+            </tr>
+            <tr>
+                <td>XXX</td>
+                <td><img src="" alt=""></td>
+                <td>服装</td>
+                <td>￥100.00</td>
+                <td>100</td>
+                <td>4</td>
+                <td>1</td>
+                <td>2022-02-02</td>
+                <td><a href="">查看详情</a></td>
+            </tr>
+            <tr>
+                <td>XXX</td>
+                <td><img src="" alt=""></td>
+                <td>服装</td>
+                <td>￥100.00</td>
+                <td>100</td>
+                <td>4</td>
+                <td>1</td>
+                <td>2022-02-02</td>
+                <td><a href="">查看详情</a></td>
+            </tr>
+        </table>
+        <ul class="serial-num">
+            <li>
+                < </li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>
+                >
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+li{
+    list-style: none;
+
+}
+a{
+    text-decoration: none;
+}
+.shop{
+    width: 1280px;
+    height: 900px;
+    /* background-color: rgb(188, 146, 146); */
+    margin: 0 auto;
+}
+/* 顶部导航条 */
+.topper{
+    width: 1280px;
+    height: 60px;
+    background-color:#486080 ;
+    border-bottom: rgb(179, 177, 177) 2px solid;
+
+}
+
+.topper-left{
+    width: 500px;
+    height: 50px;
+   
+}
+.mark{
+    height: 50px;
+    width: 50px;
+}
+.topper-li{
+    float: right;
+    /* width: 20px; */
+    margin-left: 30px;
+    line-height: 50px;
+}
+.head{
+    margin-right: 90px;
+    margin-top: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+i{
+    color: white;
+}
+/* 悬浮框 */
+#contentqqq{     
+    position: absolute;
+    width: 111px;
+    /* background-color: #486080; */
+    margin-left: -35px;
+    margin-top: -8px;
+    border: 1px solid rgb(179, 177, 177);
+}
+.nav-li1{
+    padding-left: 23px;
+    background-color: rgba(72, 96, 128, 70%);
+    border-bottom: 1px solid rgb(179, 177, 177);    
+}
+.nav-li1:hover{
+    background-color: #486080;
+}
+
+
+/* 左侧导航 */
+.left{
+    width: 200px;
+    height: 100%;
+    background-color: #486080;
+    border-right: rgb(215, 227, 242) 1px solid ;
+}
+
+.left-ul li{
+    height: 40px;
+    color: white;
+    padding-left: 70px;
+    line-height: 40px;
+    border-bottom: rgb(215, 227, 242) 1px solid;
+   background-color: #607fa8;
+   cursor: pointer;
+}
+
+.left-ul li:nth-child(1){
+    background-color: #486080;
+    font-size: 15px;
+    padding-left: 30px;
+}
+
+/* 内容区 */
+.all-content{
+    width: 1080px;
+    height: 900px;
+    background-color: rgb(237, 171, 100);
+    margin-top: -900px;
+    margin-left: 200px;
+}
